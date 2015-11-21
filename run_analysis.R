@@ -67,6 +67,6 @@ activity_labels <- as.vector(activity_labels$V2)
 all <- mutate(all,activity = activity_labels[activity])
 
 # create the average of each variable for each activity and each subject
-res %>% group_by(subject,activity) %>% summarise_each(funs(mean))
+res <- all %>% group_by(subject,activity) %>% summarise_each(funs(mean))
 
 write.table(res,file="tidy_set_result.txt",row.names = FALSE)
